@@ -1,8 +1,15 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
     <ion-title>Registro de Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content class="ion-padding">
   <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
@@ -81,6 +88,15 @@
     <ion-button expand="block" class="ion-margin-top" type="submit">
       Registrar
     </ion-button>
+    <ion-button
+  expand="block"
+  fill="outline"
+  class="ion-margin-top"
+  (click)="irAlListado()"
+>
+  Ver listado de usuarios
+</ion-button>
+
   </form>
   <ion-text *ngIf="guardadoOK">
     <p>Registro guardado localmente.</p>

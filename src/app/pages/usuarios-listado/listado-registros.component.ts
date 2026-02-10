@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
-import { 
+import {
   IonHeader,
   IonToolbar,
   IonTitle,
@@ -13,8 +13,9 @@ import {
   IonCardSubtitle,
   IonCardContent,
   IonButton,
-  IonText
- } from '@ionic/angular/standalone';
+  IonText,
+  AlertController
+} from '@ionic/angular/standalone';
 
 import { Registro, StorageService } from '../../services/storage.service';
 
@@ -40,25 +41,48 @@ import { Registro, StorageService } from '../../services/storage.service';
     IonText
   ]
 })
-export class ListadoRegistrosComponent  implements OnInit {
+export class ListadoRegistrosComponent implements OnInit {
+
   registros: Registro[] = [];
   cargando = true;
 
-  constructor(private storageSvc: StorageService) { }
+  constructor(
+    private storageSvc: StorageService,
+    private alertCtrl: AlertController
+  ) {}
 
   async ngOnInit() {
     await this.cargar();
   }
 
-  async cargar(){
+  async cargar() {
     this.cargando = true;
     this.registros = await this.storageSvc.getRegistros();
     this.cargando = false;
   }
 
-  async borrarTodo(){
-    this.cargando = true;
-    await this.storageSvc.clearRegistros();
-    await this.cargar();
+  // ✅ CONFIRMACIÓN ANTES DE BORRAR
+  async borrarTodo() {
+    const alert = await this.alertCtrl.create({
+      header: 'Confirmación',
+      message: '¿Estás seguro de eliminar todos los registros?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel'
+        },
+        {
+          text: 'Eliminar',
+          handler: async () => {
+            this.cargando = true;
+            await this.storageSvc.clearRegistros();
+            await this.cargar();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 }
+

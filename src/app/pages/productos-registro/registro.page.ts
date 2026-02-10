@@ -8,11 +8,14 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [IonicModule, ReactiveFormsModule, CommonModule],
+  imports: [
+    IonicModule,
+    ReactiveFormsModule,
+    CommonModule
+  ],
   templateUrl: './registro.page.html',
   styleUrls: ['./registro.page.scss']
 })
-
 export class RegistroPage implements OnInit {
 
   form!: FormGroup;
@@ -37,13 +40,18 @@ export class RegistroPage implements OnInit {
     if (this.form.invalid) return;
 
     await this.articulosService.guardarArticulo(this.form.value);
-    this.router.navigateByUrl('/listado');
+    this.router.navigateByUrl('/productos/listado');
   }
 
   verListado() {
-  this.router.navigateByUrl('/listado');
+    this.router.navigateByUrl('/productos/listado');
+  }
+
+  irHome() {
+    this.router.navigateByUrl('/home');
+  }
 }
 
-}
+
 
 

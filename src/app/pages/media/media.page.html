@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Permisos y Medios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- ===================== -->
+  <!-- PERMISOS -->
+  <!-- ===================== -->
+  <ion-button expand="full" (click)="solicitarPermisos()">
+    Solicitar permisos
+  </ion-button>
+
+  <ion-card>
+    <ion-card-content>
+      <p><strong>Cámara:</strong> {{ estadoCamara }}</p>
+      <p><strong>Micrófono:</strong> {{ estadoMicrofono }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- ===================== -->
+  <!-- CÁMARA -->
+  <!-- ===================== -->
+  <video #video width="100%" autoplay playsinline></video>
+
+  <ion-button expand="full" (click)="tomarFoto()">
+    Tomar foto
+  </ion-button>
+
+  <img *ngIf="foto" [src]="foto" width="100%" style="margin-top:10px;" />
+
+  <!-- ===================== -->
+  <!-- AUDIO -->
+  <!-- ===================== -->
+  <ion-button expand="full" color="secondary" (click)="grabarAudio()">
+    Grabar audio (5 segundos)
+  </ion-button>
+
+  <ion-card *ngIf="audioUrl">
+    <ion-card-content>
+      <p><strong>Estado:</strong> {{ estadoGrabacion }}</p>
+      <audio [src]="audioUrl" controls style="width:100%;"></audio>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- ===================== -->
+  <!-- ANÁLISIS DE TEXTO -->
+  <!-- ===================== -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Análisis de texto</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-input
+        placeholder="Descripción de la captura"
+        [(ngModel)]="textoAnalizar">
+      </ion-input>
+
+      <ion-button expand="full" (click)="analizarTexto()" style="margin-top:10px;">
+        Analizar texto
+      </ion-button>
+
+      <ion-spinner *ngIf="cargandoApi" style="display:block; margin:10px auto;"></ion-spinner>
+
+      <div *ngIf="resultadoSentimiento">
+        <p><strong>Resultado:</strong> {{ resultadoSentimiento }}</p>
+        <p><strong>Confianza:</strong> {{ confianza }}%</p>
+      </div>
+
+
