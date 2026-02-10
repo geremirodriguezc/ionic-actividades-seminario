@@ -14,13 +14,27 @@ export class SentimentService {
 
     const t = texto.toLowerCase();
 
-    if (t.includes('feliz') || t.includes('bueno') || t.includes('excelente') || t.includes('genial')) {
-      resultado = 'positivo';
-      confianza = 0.90;
-    } else if (t.includes('mal') || t.includes('triste') || t.includes('horrible') || t.includes('odio')) {
-      resultado = 'negativo';
-      confianza = 0.90;
-    }
+    if (
+  t.includes('feliz') ||
+  t.includes('bueno') ||
+  t.includes('excelente') ||
+  t.includes('genial') ||
+  t.includes('me gusta')
+) {
+  resultado = 'positivo';
+  confianza = 0.90;
+}
+else if (
+  t.includes('mal') ||
+  t.includes('triste') ||
+  t.includes('horrible') ||
+  t.includes('odio') ||
+  t.includes('terrible')
+) {
+  resultado = 'negativo';
+  confianza = 0.90;
+}
+
 
     
     return of({

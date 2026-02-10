@@ -1,28 +1,36 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Episodios</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <div class="container">
 
-  
-  <ion-spinner *ngIf="loading" style="display:block; margin:20px auto;"></ion-spinner>
+    <ion-spinner
+      *ngIf="loading"
+      style="display:block; margin:20px auto;">
+    </ion-spinner>
 
-  
-  <ion-list *ngIf="!loading">
-    <ion-item
+    <ion-card
+      class="episode-card"
       *ngFor="let ep of episodes"
-      button
-      (click)="openEpisode(ep.id)">
+      (click)="openEpisode(ep.id)"
+      button>
 
-      <ion-label>
-        <h2>{{ ep.name }}</h2>
-        <p>{{ ep.episode }} - {{ ep.air_date }}</p>
-      </ion-label>
+      <ion-card-content>
+        <div class="episode-title">
+          {{ ep.name }}
+        </div>
 
-    </ion-item>
-  </ion-list>
+        <div class="episode-info">
+          {{ ep.episode }} • {{ ep.air_date }}
+        </div>
+      </ion-card-content>
 
+    </ion-card>
+
+  </div>
 </ion-content>
+
 
