@@ -22,7 +22,7 @@ export class SentimentService {
       confianza = 0.90;
     }
 
-    // Simula llamada a API (1.5 segundos)
+    
     return of({
       result: {
         type: resultado,

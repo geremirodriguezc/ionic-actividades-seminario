@@ -61,7 +61,7 @@ export class ListadoRegistrosComponent implements OnInit {
     this.cargando = false;
   }
 
-  // ✅ CONFIRMACIÓN ANTES DE BORRAR
+
   async borrarTodo() {
     const alert = await this.alertCtrl.create({
       header: 'Confirmación',

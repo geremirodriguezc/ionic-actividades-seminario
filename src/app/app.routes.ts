@@ -2,9 +2,7 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
 
-  // =========================
-  // HOME (INICIO)
-  // =========================
+  
   {
     path: 'home',
     loadComponent: () =>
@@ -12,9 +10,7 @@ export const routes: Routes = [
         .then(m => m.HomeComponent)
   },
 
-  // =========================
-  // USUARIOS
-  // =========================
+
   {
     path: 'usuarios/registro',
     loadComponent: () =>
@@ -28,9 +24,7 @@ export const routes: Routes = [
         .then(m => m.ListadoRegistrosComponent)
   },
 
-  // =========================
-  // PRODUCTOS
-  // =========================
+  
   {
     path: 'productos/registro',
     loadComponent: () =>
@@ -44,9 +38,7 @@ export const routes: Routes = [
         .then(m => m.ListadoPage)
   },
 
-  // =========================
-  // OTRAS PÁGINAS
-  // =========================
+  
   {
     path: 'perfil',
     loadComponent: () =>
@@ -59,9 +51,7 @@ export const routes: Routes = [
       import('./pages/galeria/galeria.component')
         .then(m => m.GaleriaComponent)
   },
-  // =========================
-// EPISODIOS (Actividad 4)
-// =========================
+  
 {
   path: 'episodes',
   loadComponent: () =>
@@ -69,9 +59,7 @@ export const routes: Routes = [
       .then(m => m.EpisodesPage)
 },
 
-// =========================
-// MEDIA (Actividad 5)
-// =========================
+
 {
   path: 'media',
   loadComponent: () =>
@@ -79,9 +67,7 @@ export const routes: Routes = [
       .then(m => m.MediaPage)
 },
 
-// =========================
-// RUTA POR DEFECTO
-// =========================
+
 {
   path: '',
   redirectTo: 'media',

@@ -17,9 +17,7 @@ export class MediaPage {
 
   @ViewChild('video', { static: false }) video!: ElementRef<HTMLVideoElement>;
 
-  // ======================
-  // PERMISOS / CÁMARA
-  // ======================
+  
   estadoCamara = 'No solicitado';
   estadoMicrofono = 'No solicitado';
   stream!: MediaStream;
@@ -39,10 +37,10 @@ export class MediaPage {
     this.estadoCamara = 'Concedido';
     this.estadoMicrofono = 'Concedido';
 
-    // Mostrar solo video (sin audio en vivo para evitar eco)
+    
     if (this.video) {
       this.video.nativeElement.srcObject = this.stream;
-      this.video.nativeElement.muted = true; // ← evita eco
+      this.video.nativeElement.muted = true; 
     }
 
   } catch (error) {
@@ -66,9 +64,7 @@ export class MediaPage {
     this.foto = canvas.toDataURL('image/png');
   }
 
-  // ======================
-  // AUDIO
-  // ======================
+  
   mediaRecorder!: MediaRecorder;
   audioChunks: Blob[] = [];
   audioUrl: string | null = null;
@@ -80,7 +76,7 @@ export class MediaPage {
     return;
   }
 
-  // Si ya está grabando, no permitir otra grabación
+  
   if (this.mediaRecorder && this.mediaRecorder.state === 'recording') {
     return;
   }
@@ -110,7 +106,7 @@ export class MediaPage {
 
   this.mediaRecorder.start();
 
-  // Detener a los 5 segundos
+  
   setTimeout(() => {
     if (this.mediaRecorder.state === 'recording') {
       this.mediaRecorder.stop();
@@ -119,9 +115,7 @@ export class MediaPage {
 }
 
 
-  // ======================
-  // API - ANÁLISIS DE TEXTO
-  // ======================
+
   textoAnalizar = '';
   resultadoSentimiento: string | null = null;
   confianza: string | null = null;

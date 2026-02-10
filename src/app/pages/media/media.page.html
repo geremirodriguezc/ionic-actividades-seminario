@@ -6,9 +6,7 @@
 
 <ion-content class="ion-padding">
 
-  <!-- ===================== -->
-  <!-- PERMISOS -->
-  <!-- ===================== -->
+  
   <ion-button expand="full" (click)="solicitarPermisos()">
     Solicitar permisos
   </ion-button>
@@ -20,9 +18,7 @@
     </ion-card-content>
   </ion-card>
 
-  <!-- ===================== -->
-  <!-- CÁMARA -->
-  <!-- ===================== -->
+  
   <video #video width="100%" autoplay playsinline></video>
 
   <ion-button expand="full" (click)="tomarFoto()">
@@ -31,9 +27,7 @@
 
   <img *ngIf="foto" [src]="foto" width="100%" style="margin-top:10px;" />
 
-  <!-- ===================== -->
-  <!-- AUDIO -->
-  <!-- ===================== -->
+  
   <ion-button expand="full" color="secondary" (click)="grabarAudio()">
     Grabar audio (5 segundos)
   </ion-button>
@@ -45,9 +39,6 @@
     </ion-card-content>
   </ion-card>
 
-  <!-- ===================== -->
-  <!-- ANÁLISIS DE TEXTO -->
-  <!-- ===================== -->
   <ion-card>
     <ion-card-header>
       <ion-card-title>Análisis de texto</ion-card-title>

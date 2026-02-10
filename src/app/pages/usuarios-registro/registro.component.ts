@@ -99,11 +99,11 @@ export class RegistroComponent {
     await this.storageSvc.addRegistro(this.registroForm.value);
     this.guardadoOK = true;
 
-    // ✅ REDIRECCIÓN AUTOMÁTICA
+   
     this.router.navigate(['/usuarios/listado']);
   }
 
-  // ✅ BOTÓN MANUAL
+  
   irAlListado() {
     this.router.navigate(['/usuarios/listado']);
   }

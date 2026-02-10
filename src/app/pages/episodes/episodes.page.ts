@@ -33,7 +33,7 @@ export class EpisodesPage implements OnInit {
 
     this.rickService.getEpisodes().subscribe({
       next: (res) => {
-        console.log(res); // 👈 revisa esto en consola
+        console.log(res); 
         this.episodes = res.data.episodes.results;
         this.loading = false;
       },
