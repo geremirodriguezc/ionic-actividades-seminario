@@ -1,0 +1,57 @@
+ion-content {
+  --background: #f4f6f9;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+
+video {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+
+.preview-image {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+
+ion-card {
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+
+ion-button {
+  margin-top: 8px;
+  border-radius: 10px;
+}
+
+
+audio {
+  width: 100%;
+}
+
+
+.resultado {
+  margin-top: 10px;
+  padding: 8px;
+  background: #e8f5e9;
+  border-radius: 8px;
+}

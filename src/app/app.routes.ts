@@ -70,13 +70,10 @@ export const routes: Routes = [
 
 {
   path: '',
-  redirectTo: 'media',
+  redirectTo: 'home',
   pathMatch: 'full'
 }
 
-
-
-  
 
 ];
 

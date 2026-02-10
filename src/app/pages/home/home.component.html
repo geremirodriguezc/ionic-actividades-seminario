@@ -1,25 +1,53 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Inicio</ion-title>
-    
+  <ion-toolbar color="primary">
+    <ion-title>Proyecto Ionic</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content class="ion-padding">
-  <p>Este es el componente home</p>
-</ion-content>
-<ion-button expand="block" routerLink="/usuarios/registro">
-  Registro Usuarios
-</ion-button>
-<ion-button expand="block" routerLink="/productos/registro">
-  Registro Productos
-</ion-button>
-<ion-button routerLink="/perfil">
-    Ir al Perfil
-</ion-button>
-<ion-button routerLink="/galeria">
-    Ir al a Galería
-</ion-button>
 
-<ion-button expand="block" routerLink="/registro">
-  Ir a Registro
-</ion-button>
+<ion-content class="ion-padding">
+
+  <h2 class="titulo">Actividad 3 - Gestión</h2>
+
+  <ion-button expand="block" routerLink="/usuarios/registro">
+    Registro de Usuarios
+  </ion-button>
+
+  <ion-button expand="block" routerLink="/usuarios/listado">
+    Listado de Usuarios
+  </ion-button>
+
+  <ion-button expand="block" routerLink="/productos/registro">
+    Registro de Productos
+  </ion-button>
+
+  <ion-button expand="block" routerLink="/productos/listado">
+    Listado de Productos
+  </ion-button>
+
+
+  <h2 class="titulo">Actividad 4 - GraphQL</h2>
+
+  <ion-button expand="block" color="secondary" routerLink="/episodes">
+    Episodios Rick and Morty
+  </ion-button>
+
+
+  <h2 class="titulo">Actividad 5 - Permisos y Medios</h2>
+
+  <ion-button expand="block" color="tertiary" routerLink="/media">
+    Cámara, Audio y Análisis
+  </ion-button>
+
+
+  <h2 class="titulo">Otras Secciones</h2>
+
+  <ion-button expand="block" routerLink="/perfil">
+    Perfil
+  </ion-button>
+
+  <ion-button expand="block" routerLink="/galeria">
+    Galería
+  </ion-button>
+
+</ion-content>
+

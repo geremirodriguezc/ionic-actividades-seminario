@@ -1,65 +1,80 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Permisos y Medios</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <div class="container">
 
-  
-  <ion-button expand="full" (click)="solicitarPermisos()">
-    Solicitar permisos
-  </ion-button>
+   
+    <p class="section-title">Permisos</p>
 
-  <ion-card>
-    <ion-card-content>
-      <p><strong>Cámara:</strong> {{ estadoCamara }}</p>
-      <p><strong>Micrófono:</strong> {{ estadoMicrofono }}</p>
-    </ion-card-content>
-  </ion-card>
+    <ion-button expand="block" (click)="solicitarPermisos()">
+      Solicitar permisos
+    </ion-button>
 
-  
-  <video #video width="100%" autoplay playsinline></video>
+    <ion-card>
+      <ion-card-content>
+        <p><strong>Cámara:</strong> {{ estadoCamara }}</p>
+        <p><strong>Micrófono:</strong> {{ estadoMicrofono }}</p>
+      </ion-card-content>
+    </ion-card>
 
-  <ion-button expand="full" (click)="tomarFoto()">
-    Tomar foto
-  </ion-button>
+    
+    <p class="section-title">Cámara</p>
 
-  <img *ngIf="foto" [src]="foto" width="100%" style="margin-top:10px;" />
+    <video #video autoplay playsinline></video>
 
-  
-  <ion-button expand="full" color="secondary" (click)="grabarAudio()">
-    Grabar audio (5 segundos)
-  </ion-button>
+    <ion-button expand="block" (click)="tomarFoto()">
+      Tomar foto
+    </ion-button>
 
-  <ion-card *ngIf="audioUrl">
-    <ion-card-content>
-      <p><strong>Estado:</strong> {{ estadoGrabacion }}</p>
-      <audio [src]="audioUrl" controls style="width:100%;"></audio>
-    </ion-card-content>
-  </ion-card>
+    <img *ngIf="foto" [src]="foto" class="preview-image" />
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Análisis de texto</ion-card-title>
-    </ion-card-header>
+    
+    <p class="section-title">Grabación de audio</p>
 
-    <ion-card-content>
+    <ion-button expand="block" color="secondary" (click)="grabarAudio()">
+      Grabar audio (5 segundos)
+    </ion-button>
 
-      <ion-input
-        placeholder="Descripción de la captura"
-        [(ngModel)]="textoAnalizar">
-      </ion-input>
+    <ion-card *ngIf="audioUrl">
+      <ion-card-content>
+        <p><strong>Estado:</strong> {{ estadoGrabacion }}</p>
+        <audio [src]="audioUrl" controls></audio>
+      </ion-card-content>
+    </ion-card>
 
-      <ion-button expand="full" (click)="analizarTexto()" style="margin-top:10px;">
-        Analizar texto
-      </ion-button>
+    
+    <p class="section-title">Análisis de texto</p>
 
-      <ion-spinner *ngIf="cargandoApi" style="display:block; margin:10px auto;"></ion-spinner>
+    <ion-card>
+      <ion-card-content>
 
-      <div *ngIf="resultadoSentimiento">
-        <p><strong>Resultado:</strong> {{ resultadoSentimiento }}</p>
-        <p><strong>Confianza:</strong> {{ confianza }}%</p>
-      </div>
+        <ion-input
+          placeholder="Escribe un texto para analizar"
+          [(ngModel)]="textoAnalizar">
+        </ion-input>
+
+        <ion-button expand="block" (click)="analizarTexto()">
+          Analizar texto
+        </ion-button>
+
+        <ion-spinner
+          *ngIf="cargandoApi"
+          style="display:block; margin:15px auto;">
+        </ion-spinner>
+
+        <div *ngIf="resultadoSentimiento" class="resultado">
+          <p><strong>Resultado:</strong> {{ resultadoSentimiento }}</p>
+          <p><strong>Confianza:</strong> {{ confianza }}%</p>
+        </div>
+
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+</ion-content>
 
 
